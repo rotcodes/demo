@@ -4,22 +4,7 @@ import { ArrowRight, Play, Globe2, TrendingUp, Shield } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="hero">
-      {/* Video Background */}
-      <div className="hero__video-wrap">
-        <video
-          className="hero__video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80"
-        >
-          <source src="https://videos.pexels.com/video-files/6169049/6169049-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-        </video>
-        <div className="hero__video-overlay" />
-      </div>
-
-      {/* Animated mesh gradient */}
+      {/* Animated mesh gradient — no image/video */}
       <div className="hero__mesh">
         <motion.div
           className="hero__mesh-orb hero__mesh-orb--1"
@@ -47,7 +32,18 @@ export default function Hero() {
           }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         />
+        <motion.div
+          className="hero__mesh-orb hero__mesh-orb--4"
+          animate={{
+            x: [0, -40, 30, 0],
+            y: [0, 30, -50, 0],
+            scale: [1, 1.1, 0.95, 1],
+          }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </div>
+
+      <div className="hero__grid-pattern" />
 
       <div className="container hero__content">
         <motion.div
@@ -103,10 +99,10 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.7 }}
         >
           {[
-            { icon: Globe2, value: '40+', label: 'Countries', color: '#818CF8' },
-            { icon: TrendingUp, value: '$2.4B+', label: 'Annual Volume', color: '#06B6D4' },
-            { icon: Shield, value: '99.8%', label: 'Fulfillment', color: '#10B981' },
-          ].map((m, i) => (
+            { icon: Globe2, value: '40+', label: 'Countries', color: '#7DD3FC' },
+            { icon: TrendingUp, value: '$2.4B+', label: 'Annual Volume', color: '#22D3EE' },
+            { icon: Shield, value: '99.8%', label: 'Fulfillment', color: '#38BDF8' },
+          ].map((m) => (
             <motion.div
               key={m.label}
               className="hero__metric"

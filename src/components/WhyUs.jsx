@@ -3,11 +3,11 @@ import { Zap, ShieldCheck, Clock, DollarSign, Handshake, BarChart } from 'lucide
 
 const reasons = [
   { icon: Zap, title: 'Lightning Fast', desc: 'Same-day dispatch, avg 24hr domestic delivery.', color: '#F59E0B' },
-  { icon: ShieldCheck, title: 'Quality Assured', desc: 'Multi-point checks with full traceability.', color: '#818CF8' },
+  { icon: ShieldCheck, title: 'Quality Assured', desc: 'Multi-point checks with full traceability.', color: '#7DD3FC' },
   { icon: Clock, title: 'Always On', desc: '24/7 operations across all time zones.', color: '#06B6D4' },
   { icon: DollarSign, title: 'Best Pricing', desc: 'Direct manufacturer pricing, guaranteed.', color: '#10B981' },
   { icon: Handshake, title: 'Flexible Terms', desc: 'Custom credit, NET-30/60/90 options.', color: '#F43F5E' },
-  { icon: BarChart, title: 'Full Visibility', desc: 'Real-time tracking and analytics.', color: '#A78BFA' },
+  { icon: BarChart, title: 'Full Visibility', desc: 'Real-time tracking and analytics.', color: '#38BDF8' },
 ]
 
 export default function WhyUs() {
@@ -48,8 +48,8 @@ export default function WhyUs() {
                   />
                   <defs>
                     <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#818CF8" />
-                      <stop offset="100%" stopColor="#06B6D4" />
+                      <stop offset="0%" stopColor="#38BDF8" />
+                      <stop offset="100%" stopColor="#22D3EE" />
                     </linearGradient>
                   </defs>
                   <text x="60" y="55" textAnchor="middle" fill="white" fontSize="28" fontWeight="700" fontFamily="Space Grotesk">98%</text>

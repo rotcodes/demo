@@ -7,14 +7,14 @@ const services = [
     title: 'Bulk Procurement',
     desc: 'Direct manufacturer relationships with competitive pricing on 50,000+ SKUs.',
     image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&q=80',
-    color: '#818CF8',
+    color: '#7DD3FC',
   },
   {
     icon: Warehouse,
     title: 'Smart Warehousing',
     desc: '2M+ sq ft of climate-controlled warehouse space with automated management.',
     image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=600&h=400&fit=crop&q=80',
-    color: '#A78BFA',
+    color: '#38BDF8',
   },
   {
     icon: Truck,
