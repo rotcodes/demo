@@ -3,11 +3,11 @@ import { Zap, ShieldCheck, Clock, DollarSign, Handshake, BarChart } from 'lucide
 
 const reasons = [
   { icon: Zap, title: 'Lightning Fast', desc: 'Same-day dispatch, avg 24hr domestic delivery.', color: '#F59E0B' },
-  { icon: ShieldCheck, title: 'Quality Assured', desc: 'Multi-point checks with full traceability.', color: '#7DD3FC' },
-  { icon: Clock, title: 'Always On', desc: '24/7 operations across all time zones.', color: '#06B6D4' },
+  { icon: ShieldCheck, title: 'Quality Assured', desc: 'Multi-point checks with full traceability.', color: '#0284C7' },
+  { icon: Clock, title: 'Always On', desc: '24/7 operations across all time zones.', color: '#0891B2' },
   { icon: DollarSign, title: 'Best Pricing', desc: 'Direct manufacturer pricing, guaranteed.', color: '#10B981' },
   { icon: Handshake, title: 'Flexible Terms', desc: 'Custom credit, NET-30/60/90 options.', color: '#F43F5E' },
-  { icon: BarChart, title: 'Full Visibility', desc: 'Real-time tracking and analytics.', color: '#38BDF8' },
+  { icon: BarChart, title: 'Full Visibility', desc: 'Real-time tracking and analytics.', color: '#0369A1' },
 ]
 
 export default function WhyUs() {
@@ -35,7 +35,7 @@ export default function WhyUs() {
             >
               <div className="why-us__highlight-ring">
                 <svg viewBox="0 0 120 120" className="why-us__highlight-svg">
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="6" />
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(15,23,42,0.08)" strokeWidth="6" />
                   <motion.circle
                     cx="60" cy="60" r="52" fill="none" stroke="url(#grad)" strokeWidth="6"
                     strokeLinecap="round"
@@ -52,13 +52,13 @@ export default function WhyUs() {
                       <stop offset="100%" stopColor="#22D3EE" />
                     </linearGradient>
                   </defs>
-                  <text x="60" y="55" textAnchor="middle" fill="white" fontSize="28" fontWeight="700" fontFamily="Space Grotesk">98%</text>
-                  <text x="60" y="75" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="11" fontWeight="500" fontFamily="Inter">Retention</text>
+                  <text x="60" y="55" textAnchor="middle" fill="#0F172A" fontSize="28" fontWeight="700" fontFamily="Space Grotesk">98%</text>
+                  <text x="60" y="75" textAnchor="middle" fill="rgba(15,23,42,0.5)" fontSize="11" fontWeight="500" fontFamily="Inter">Retention</text>
                 </svg>
               </div>
               <div>
-                <strong style={{ color: 'var(--white)', fontSize: 16 }}>Client Retention Rate</strong>
-                <p style={{ color: 'var(--white-50)', fontSize: 14, marginTop: 4 }}>Our partners stay because we deliver — every single time.</p>
+                <strong style={{ color: 'var(--text)', fontSize: 16 }}>Client Retention Rate</strong>
+                <p style={{ color: 'var(--text-50)', fontSize: 14, marginTop: 4 }}>Our partners stay because we deliver — every single time.</p>
               </div>
             </motion.div>
           </motion.div>

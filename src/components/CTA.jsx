@@ -31,7 +31,7 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="section-label" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+            <span className="section-label" style={{ borderColor: 'rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#7DD3FC' }}>
               <span className="section-label__dot" /> Get Started
             </span>
             <h2 className="cta__title">Ready to Scale Your<br />Distribution?</h2>

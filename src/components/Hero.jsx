@@ -87,7 +87,7 @@ export default function Hero() {
             Start Partnership <ArrowRight size={17} />
           </a>
           <a href="#about" className="btn btn-glass">
-            <Play size={15} fill="white" /> Watch Story
+            <Play size={15} fill="currentColor" /> Watch Story
           </a>
         </motion.div>
 
@@ -99,9 +99,9 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.7 }}
         >
           {[
-            { icon: Globe2, value: '40+', label: 'Countries', color: '#7DD3FC' },
-            { icon: TrendingUp, value: '$2.4B+', label: 'Annual Volume', color: '#22D3EE' },
-            { icon: Shield, value: '99.8%', label: 'Fulfillment', color: '#38BDF8' },
+            { icon: Globe2, value: '40+', label: 'Countries', color: '#0284C7' },
+            { icon: TrendingUp, value: '$2.4B+', label: 'Annual Volume', color: '#0891B2' },
+            { icon: Shield, value: '99.8%', label: 'Fulfillment', color: '#0369A1' },
           ].map((m) => (
             <motion.div
               key={m.label}
