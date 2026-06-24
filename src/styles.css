@@ -471,10 +471,7 @@
 }
 
 .about__img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(3, 105, 161, 0.15) 60%, rgba(2, 132, 199, 0.25) 100%);
-  mix-blend-mode: multiply;
+  display: none;
 }
 
 .about__img-accent {
@@ -638,11 +635,7 @@
 }
 
 .services__card-img-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(2, 132, 199, 0.2) 0%, rgba(15,23,42,0.6) 100%),
-    linear-gradient(135deg, rgba(2, 132, 199, 0.15) 0%, transparent 60%);
+  display: none;
 }
 
 .services__card-body {
@@ -740,16 +733,12 @@
 .industries__card-img-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(2, 132, 199, 0.15) 0%, rgba(15,23,42,0.7) 100%),
-    linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, transparent 50%);
+  background: linear-gradient(180deg, transparent 30%, rgba(15,23,42,0.7) 100%);
   transition: background 0.4s;
 }
 
 .industries__card:hover .industries__card-img-overlay {
-  background:
-    linear-gradient(180deg, rgba(2, 132, 199, 0.25) 0%, rgba(15,23,42,0.8) 100%),
-    linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, transparent 50%);
+  background: linear-gradient(180deg, transparent 20%, rgba(15,23,42,0.8) 100%);
 }
 
 .industries__card-body {
