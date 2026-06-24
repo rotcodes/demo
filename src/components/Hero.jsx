@@ -1,47 +1,72 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Globe2, Shield } from 'lucide-react'
+import { ArrowRight, Play, Globe2, TrendingUp, Shield } from 'lucide-react'
 
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero__bg">
-        <div className="hero__gradient" />
-        <div className="hero__grid" />
+      {/* Video Background */}
+      <div className="hero__video-wrap">
+        <video
+          className="hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80"
+        >
+          <source src="https://videos.pexels.com/video-files/6169049/6169049-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+        </video>
+        <div className="hero__video-overlay" />
+      </div>
+
+      {/* Animated mesh gradient */}
+      <div className="hero__mesh">
         <motion.div
-          className="hero__orb hero__orb--1"
-          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="hero__mesh-orb hero__mesh-orb--1"
+          animate={{
+            x: [0, 100, -50, 0],
+            y: [0, -80, 60, 0],
+            scale: [1, 1.2, 0.9, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="hero__orb hero__orb--2"
-          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          className="hero__mesh-orb hero__mesh-orb--2"
+          animate={{
+            x: [0, -70, 80, 0],
+            y: [0, 50, -60, 0],
+            scale: [1, 0.8, 1.15, 1],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="hero__orb hero__orb--3"
-          animate={{ y: [0, 15, 0], x: [0, 25, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+          className="hero__mesh-orb hero__mesh-orb--3"
+          animate={{
+            x: [0, 60, -40, 0],
+            y: [0, -40, 80, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
 
       <div className="container hero__content">
         <motion.div
           className="hero__badge"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.8 }}
         >
           <span className="hero__badge-dot" />
-          Trusted by 500+ businesses worldwide
+          Trusted by 500+ businesses across 40 countries
         </motion.div>
 
         <motion.h1
           className="hero__title"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.8, delay: 0.15 }}
         >
-          Powering Global
+          The Future of
           <br />
           <span className="hero__title-gradient">Wholesale Distribution</span>
         </motion.h1>
@@ -50,67 +75,58 @@ export default function Hero() {
           className="hero__subtitle"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
-          End-to-end supply chain solutions for businesses of every scale.
-          We connect manufacturers to markets with speed, reliability, and precision.
+          End-to-end supply chain intelligence that connects manufacturers
+          to markets with unmatched speed and precision.
         </motion.p>
 
         <motion.div
-          className="hero__ctas"
+          className="hero__actions"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
         >
-          <a href="#contact" className="btn btn-primary btn--lg">
-            Start Partnership <ArrowRight size={18} />
+          <a href="#contact" className="btn btn-primary">
+            Start Partnership <ArrowRight size={17} />
           </a>
-          <a href="#about" className="btn btn-secondary btn--lg">
-            <Play size={16} /> See How It Works
+          <a href="#about" className="btn btn-glass">
+            <Play size={15} fill="white" /> Watch Story
           </a>
         </motion.div>
 
+        {/* Floating glass metric cards */}
         <motion.div
-          className="hero__cards"
-          initial={{ opacity: 0, y: 40 }}
+          className="hero__metrics"
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 1, delay: 0.7 }}
         >
-          <div className="hero__card">
-            <div className="hero__card-icon hero__card-icon--blue">
-              <Globe2 size={20} />
-            </div>
-            <div>
-              <div className="hero__card-value">40+</div>
-              <div className="hero__card-label">Countries Served</div>
-            </div>
-          </div>
-          <div className="hero__card">
-            <div className="hero__card-icon hero__card-icon--emerald">
-              <TrendingUp size={20} />
-            </div>
-            <div>
-              <div className="hero__card-value">$2.4B+</div>
-              <div className="hero__card-label">Annual Volume</div>
-            </div>
-          </div>
-          <div className="hero__card">
-            <div className="hero__card-icon hero__card-icon--gold">
-              <Shield size={20} />
-            </div>
-            <div>
-              <div className="hero__card-value">99.8%</div>
-              <div className="hero__card-label">Fulfillment Rate</div>
-            </div>
-          </div>
+          {[
+            { icon: Globe2, value: '40+', label: 'Countries', color: '#818CF8' },
+            { icon: TrendingUp, value: '$2.4B+', label: 'Annual Volume', color: '#06B6D4' },
+            { icon: Shield, value: '99.8%', label: 'Fulfillment', color: '#10B981' },
+          ].map((m, i) => (
+            <motion.div
+              key={m.label}
+              className="hero__metric"
+              whileHover={{ y: -6, scale: 1.03 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <m.icon size={22} style={{ color: m.color }} />
+              <div className="hero__metric-value">{m.value}</div>
+              <div className="hero__metric-label">{m.label}</div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
 
-      <div className="hero__scroll-indicator">
+      {/* Scroll indicator */}
+      <div className="hero__scroll">
         <motion.div
-          className="hero__scroll-line"
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="hero__scroll-dot"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
     </section>

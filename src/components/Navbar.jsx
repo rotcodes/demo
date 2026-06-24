@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Package, Menu, X, ChevronRight } from 'lucide-react'
+import { Package, Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -15,7 +15,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -28,40 +28,30 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
+        className={`nav ${scrolled ? 'nav--scrolled' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="container navbar__inner">
-          <a href="#" className="navbar__logo">
-            <div className="navbar__logo-icon">
-              <Package size={22} strokeWidth={2.5} />
+        <div className="container nav__inner">
+          <a href="#" className="nav__logo">
+            <div className="nav__logo-icon">
+              <Package size={20} strokeWidth={2.5} />
             </div>
-            <span className="navbar__logo-text">
-              Global<span className="navbar__logo-accent">Trade</span>
-            </span>
+            <span>Global<span className="nav__logo-accent">Trade</span></span>
           </a>
 
-          <div className="navbar__links">
+          <div className="nav__links">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="navbar__link">
-                {link.name}
-              </a>
+              <a key={link.name} href={link.href} className="nav__link">{link.name}</a>
             ))}
           </div>
 
-          <div className="navbar__actions">
-            <a href="#contact" className="btn btn-primary btn--nav">
-              Get a Quote <ChevronRight size={16} />
-            </a>
-          </div>
+          <a href="#contact" className="nav__cta">
+            Get Started <ArrowRight size={15} />
+          </a>
 
-          <button
-            className="navbar__hamburger"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="nav__hamburger" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -70,30 +60,26 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="mobile-menu"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            className="mobile-nav"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(24px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
           >
-            <div className="mobile-menu__links">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  className="mobile-menu__link"
-                  onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  {link.name}
-                  <ChevronRight size={18} />
-                </motion.a>
-              ))}
-            </div>
-            <a href="#contact" className="btn btn-primary" onClick={() => setMobileOpen(false)} style={{ width: '100%', justifyContent: 'center' }}>
-              Get a Quote
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                className="mobile-nav__link"
+                onClick={() => setMobileOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.07 }}
+              >
+                {link.name}
+              </motion.a>
+            ))}
+            <a href="#contact" className="btn btn-primary" onClick={() => setMobileOpen(false)} style={{ width: '100%', justifyContent: 'center', marginTop: 16 }}>
+              Get Started <ArrowRight size={15} />
             </a>
           </motion.div>
         )}

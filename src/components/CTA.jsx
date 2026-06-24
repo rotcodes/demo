@@ -5,48 +5,45 @@ export default function CTA() {
   return (
     <section className="cta" id="contact">
       <div className="cta__bg">
+        <img
+          src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1920&q=80"
+          alt=""
+          className="cta__bg-img"
+        />
+        <div className="cta__bg-overlay" />
         <motion.div
-          className="cta__orb cta__orb--1"
-          animate={{ y: [0, -20, 0], x: [0, 15, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="cta__bg-orb cta__bg-orb--1"
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="cta__orb cta__orb--2"
-          animate={{ y: [0, 15, 0], x: [0, -10, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          className="cta__bg-orb cta__bg-orb--2"
+          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
 
       <div className="container cta__inner">
-        <div className="cta__content">
+        <div className="cta__layout">
           <motion.div
             className="cta__text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="section-label" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
-              Get Started
+            <span className="section-label" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+              <span className="section-label__dot" /> Get Started
             </span>
             <h2 className="cta__title">Ready to Scale Your<br />Distribution?</h2>
             <p className="cta__subtitle">
-              Join 500+ businesses that trust GlobalTrade for their wholesale
-              distribution needs. Get a custom quote in under 24 hours.
+              Join 500+ businesses that trust GlobalTrade. Get a custom
+              quote in under 24 hours.
             </p>
 
-            <div className="cta__contact-info">
-              <div className="cta__contact-item">
-                <Phone size={18} />
-                <span>+1 (800) 555-0199</span>
-              </div>
-              <div className="cta__contact-item">
-                <Mail size={18} />
-                <span>partnerships@globaltrade.com</span>
-              </div>
-              <div className="cta__contact-item">
-                <MapPin size={18} />
-                <span>Chicago, IL | New York, NY | Los Angeles, CA</span>
-              </div>
+            <div className="cta__info">
+              <div className="cta__info-item"><Phone size={18} /> +1 (800) 555-0199</div>
+              <div className="cta__info-item"><Mail size={18} /> partnerships@globaltrade.com</div>
+              <div className="cta__info-item"><MapPin size={18} /> Chicago | New York | Los Angeles</div>
             </div>
           </motion.div>
 
@@ -57,7 +54,7 @@ export default function CTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <form className="cta__form" onSubmit={(e) => e.preventDefault()}>
+            <form className="cta__form" onSubmit={e => e.preventDefault()}>
               <h3 className="cta__form-title">Request a Quote</h3>
               <div className="cta__form-row">
                 <input type="text" placeholder="Full Name" className="cta__input" />
@@ -76,7 +73,7 @@ export default function CTA() {
               </select>
               <textarea placeholder="Tell us about your distribution needs..." className="cta__input cta__textarea" rows={4} />
               <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Send Request <ArrowRight size={18} />
+                Send Request <ArrowRight size={17} />
               </button>
             </form>
           </motion.div>

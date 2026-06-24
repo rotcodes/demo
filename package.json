@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-spring/web": "^10.1.2",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "framer-motion": "^12.41.0",
     "lucide-react": "^1.21.0",
     "react": "^19.2.7",

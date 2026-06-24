@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2000 }) {
+function Counter({ end, suffix = '', prefix = '', duration = 2200 }) {
   const [count, setCount] = useState(0)
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 })
   const started = useRef(false)
@@ -12,11 +12,10 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2000 }) {
       started.current = true
       const startTime = Date.now()
       const tick = () => {
-        const elapsed = Date.now() - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3)
+        const p = Math.min((Date.now() - startTime) / duration, 1)
+        const eased = 1 - Math.pow(1 - p, 4)
         setCount(Math.floor(eased * end))
-        if (progress < 1) requestAnimationFrame(tick)
+        if (p < 1) requestAnimationFrame(tick)
       }
       requestAnimationFrame(tick)
     }
@@ -26,10 +25,10 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2000 }) {
 }
 
 const stats = [
-  { value: 500, suffix: '+', label: 'Active Clients', desc: 'Businesses trust us with their supply chain' },
-  { value: 12, suffix: 'M+', label: 'Units Shipped Monthly', desc: 'Across all product categories' },
-  { value: 40, suffix: '+', label: 'Countries', desc: 'Global distribution network reach' },
-  { value: 99, suffix: '.8%', label: 'On-Time Delivery', desc: 'Industry-leading fulfillment rate' },
+  { value: 500, suffix: '+', label: 'Active Partners', desc: 'Businesses trust our supply chain' },
+  { value: 12, suffix: 'M+', label: 'Units / Month', desc: 'Across all product categories' },
+  { value: 40, suffix: '+', label: 'Countries', desc: 'Global distribution network' },
+  { value: 99, suffix: '.8%', label: 'On-Time Rate', desc: 'Industry-leading fulfillment' },
 ]
 
 export default function Stats() {
@@ -37,20 +36,21 @@ export default function Stats() {
     <section className="stats">
       <div className="container">
         <div className="stats__grid">
-          {stats.map((stat, i) => (
+          {stats.map((s, i) => (
             <motion.div
-              key={stat.label}
-              className="stats__item"
-              initial={{ opacity: 0, y: 20 }}
+              key={s.label}
+              className="stats__card"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <div className="stats__value">
-                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                <Counter end={s.value} suffix={s.suffix} />
               </div>
-              <div className="stats__label">{stat.label}</div>
-              <div className="stats__desc">{stat.desc}</div>
+              <div className="stats__label">{s.label}</div>
+              <div className="stats__desc">{s.desc}</div>
+              <div className="stats__glow" />
             </motion.div>
           ))}
         </div>
